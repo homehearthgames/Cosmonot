@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Resources
   - Water
   - UI
-  - 
-  - 
+  - Enemies
+  - Buildings
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Selector
+    uniqueID: 3159349171
     locked: 0
