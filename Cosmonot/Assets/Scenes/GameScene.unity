@@ -435,7 +435,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -554,6 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834214806}
   - component: {fileID: 1834214805}
+  - component: {fileID: 1834214807}
   m_Layer: 0
   m_Name: GRID
   m_TagString: Untagged
@@ -589,6 +590,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834214807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834214804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699c0fc4adc0f54428d549bb45735820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 0
+  size: 80
+  biomes:
+  - color: {r: 0.65882355, g: 0.37647063, b: 0.3647059, a: 1}
+    scale: 1
+    occurrence: 1
+    tile: {fileID: 11400000, guid: b74e5d6cb893e3c46be45556cd2d1c55, type: 2}
+    vegetation_map: []
+    vegetation:
+    - color: {r: 0.7075472, g: 0.48612803, b: 0.19023673, a: 0}
+      scale: 2
+      occurrence: 0.123
+      prefab: {fileID: 5732825881646317462, guid: 7151d572ed734e44698169132a5e2977, type: 3}
+    - color: {r: 0.7058824, g: 0.35720062, b: 0.19215687, a: 0}
+      scale: 1.9
+      occurrence: 0.1
+      prefab: {fileID: 6761576655993813142, guid: 61a45a1c9e6a48d468457028518e081c, type: 3}
+  - color: {r: 0.39607847, g: 0.2509804, b: 0.3254902, a: 1}
+    scale: 8
+    occurrence: 0.368
+    tile: {fileID: 11400000, guid: 49d322e35060c424fa209a0d9933cfc8, type: 2}
+    vegetation_map: []
+    vegetation: []
 --- !u!1001 &180245818125406536
 PrefabInstance:
   m_ObjectHideFlags: 0
