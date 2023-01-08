@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406372781}
   m_Layer: 0
-  m_Name: + LIGHTS
+  m_Name: LIGHTS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 512475783}
   m_Layer: 0
-  m_Name: + OBJECT-POOLS
+  m_Name: OBJECT-POOLS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010495569}
   m_Layer: 0
-  m_Name: + ENEMIES
+  m_Name: ENEMIES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 1834214806}
   - component: {fileID: 1834214805}
   m_Layer: 0
-  m_Name: + GRID
+  m_Name: GRID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,7 +598,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 180245816794784065, guid: 6f9bab33b689fce4daf237b7f88b3889, type: 3}
       propertyPath: m_Name
-      value: + CAMERAS
+      value: CAMERAS
       objectReference: {fileID: 0}
     - target: {fileID: 180245816794784066, guid: 6f9bab33b689fce4daf237b7f88b3889, type: 3}
       propertyPath: m_RootOrder
@@ -699,7 +699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 463211040643046579, guid: 30c3b95f1b59ee74fbdc03238a676c92, type: 3}
       propertyPath: m_Name
-      value: + PLAYER
+      value: PLAYER
+      objectReference: {fileID: 0}
+    - target: {fileID: 463211041349641764, guid: 30c3b95f1b59ee74fbdc03238a676c92, type: 3}
+      propertyPath: m_Name
+      value: WEAPON
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30c3b95f1b59ee74fbdc03238a676c92, type: 3}
