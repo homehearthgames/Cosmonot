@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404829223}
   m_Layer: 0
-  m_Name: Turret Projectile Pool
+  m_Name: TurretProjectilePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 714138856}
   m_Layer: 0
-  m_Name: Player Projectile Pool
+  m_Name: PlayerProjectilePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377644439}
   m_Layer: 0
-  m_Name: Enemy Projectile Pool
+  m_Name: EnemyProjectilePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
