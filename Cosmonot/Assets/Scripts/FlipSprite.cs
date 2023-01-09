@@ -1,19 +1,28 @@
+using Pathfinding;
 using UnityEngine;
 
 public class FlipSprite : MonoBehaviour
 {
     public Transform player; // drag the player object into this field in the Inspector
 
+    AIPath a_star; 
+    SpriteRenderer sprite_renderer;
+
+    void Start() {
+        a_star = GetComponent<AIPath>();
+        sprite_renderer = GetComponent<SpriteRenderer>();
+    }
+
     void Update()
     {
         // flip the sprite based on the player's position
-        if (player.position.x > transform.position.x)
+        if (a_star.velocity.x > -0.01f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            sprite_renderer.flipX = false;
         }
         else
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            sprite_renderer.flipX = true;
         }
     }
 }
