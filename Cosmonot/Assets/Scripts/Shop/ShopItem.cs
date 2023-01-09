@@ -62,6 +62,7 @@ public class ShopItem : MonoBehaviour {
         placed = true;
         // disable this script after this item is placed
         enabled = false;
+        FindObjectOfType<PathfindingUpdateObstacles>().RecalculatePathfinding(collider);
     }
 
     // debug info for the obstructions point of origin + size
