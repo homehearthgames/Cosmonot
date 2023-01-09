@@ -15,6 +15,8 @@ public class Terrain2D : MonoBehaviour{
     // grab the tilemap component from our child game object
     Tilemap terrain;
 
+    [SerializeField] Tilemap worldTilemap;
+
     void Start() {
         terrain = GetComponentInChildren<Tilemap>();
         if(size <= 0) size = 10;
@@ -62,7 +64,6 @@ public class Terrain2D : MonoBehaviour{
                     vegetation_obj.transform.localPosition = new Vector2(x, y) + Vector2.one * 0.5f;
                 }
             }
-
             yield return null;
         }
     }

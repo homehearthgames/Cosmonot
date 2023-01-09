@@ -37,13 +37,19 @@ public class PlayerAnimation : MonoBehaviour
     
     private void FlipSprite()
     {
-        if (playerMovement.moveInput.x < 0)
+        // Get the cursor position in world coordinates
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // If the cursor is to the left of the player
+        if (cursorPos.x < transform.position.x)
         {
             spriteRenderer.flipX = false;
         }
-        else if (playerMovement.moveInput.x > 0)
+        // If the cursor is to the right of the player
+        else if (cursorPos.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
         }
     }
+
 }

@@ -4,7 +4,7 @@ using TMPro;
 public class PlayerSelection : MonoBehaviour
 {
     // the tile which will activate over selectable objects
-    [SerializeField] GameObject selectionTile;
+    [SerializeField] public GameObject selectionTile;
     // the layers which can be selected
     [SerializeField] LayerMask selectableLayers;
     // reference to the selection text
