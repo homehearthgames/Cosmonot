@@ -54,8 +54,8 @@ public class Terrain2D : MonoBehaviour{
                 if(current_vegetation!=null){
                     //spawn the prefab/game object
                     GameObject vegetation_obj = Instantiate(current_vegetation.prefab);
-                    //set the newly spawn objects name with coordinates 
-                    vegetation_obj.name = $"{current_vegetation.prefab.name}: {x}, {y}";
+                    //set the newly spawn objects name 
+                    vegetation_obj.name = $"{current_vegetation.prefab.name}";
                     //set the newly spawn objects parent the the tilemap 
                     vegetation_obj.transform.parent = terrain.transform;
                     //set the newly spawn objects position offset
