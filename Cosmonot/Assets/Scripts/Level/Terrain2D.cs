@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Linq;
+using Pathfinding;
 
 public class Terrain2D : MonoBehaviour{
 
@@ -12,6 +13,7 @@ public class Terrain2D : MonoBehaviour{
     public int size;
     // biomes of the game
     public List<Biome> biomes = new List<Biome>();
+    // public AstarPath astarPath;
     // grab the tilemap component from our child game object
     Tilemap terrain;
 
@@ -29,6 +31,17 @@ public class Terrain2D : MonoBehaviour{
         terrain.transform.localPosition = -(Vector2.one * (size / 2)) - Vector2.one * 0.5f;
         //combine the biome color maps and begin building the world 
         StartCoroutine(BuildTerrain(CombinedColorMaps(biomes)));
+        
+        //PathFinding Stuffs
+        var gg = AstarPath.active.data.gridGraph;
+        var width = size;
+        var depth = size;
+        var nodeSize = 1.0f;
+
+        gg.SetDimensions(width, depth, nodeSize);
+
+        // Recalculate the graph
+        AstarPath.active.Scan();
     }
 
     //build the terrain with the supplied color map
