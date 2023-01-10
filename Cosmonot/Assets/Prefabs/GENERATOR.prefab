@@ -96,6 +96,9 @@ GameObject:
   - component: {fileID: 2795499742446597962}
   - component: {fileID: 1934467803115837451}
   - component: {fileID: 4681027027730839028}
+  - component: {fileID: -886677624799070432}
+  - component: {fileID: -6583289101501910310}
+  - component: {fileID: -1025363928810659231}
   m_Layer: 7
   m_Name: GENERATOR
   m_TagString: Untagged
@@ -173,16 +176,67 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8336126694245442962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf7b142d8c513ec469d420accad3d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cellSize: 2
-  placed: 0
-  placeable: 0
+  placed: 1
+  placeable: 1
   layerObstructions:
     serializedVersion: 2
     m_Bits: 200
   placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
   blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
+--- !u!114 &-886677624799070432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b906673e98269543a1ac6eb8f0b2614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-6583289101501910310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280d4b9c8d5c0e048a3e5fdcff735724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullCarbonSprite: {fileID: 652398693, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  highCarbonSprite: {fileID: 338251822, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  midCarbonSprite: {fileID: 205838635, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  lowCarbonSprite: {fileID: -1974784169, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  lowCarbonThreshold: 33
+  midCarbonThreshold: 66
+--- !u!114 &-1025363928810659231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2497b49b9b2723745aca692958493f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCarbon: 0
+  maxCarbon: 100
+  carbonSubtractAmount: 10
+  carbonSubtractInterval: 2

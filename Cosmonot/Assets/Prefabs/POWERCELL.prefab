@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2795499742446597962}
   - component: {fileID: 1934467803115837451}
   - component: {fileID: 4681027027730839028}
+  - component: {fileID: -1064521709826763764}
   m_Layer: 7
   m_Name: POWERCELL
   m_TagString: Untagged
@@ -186,3 +187,19 @@ MonoBehaviour:
     m_Bits: 200
   placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
   blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
+--- !u!114 &-1064521709826763764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b906673e98269543a1ac6eb8f0b2614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []

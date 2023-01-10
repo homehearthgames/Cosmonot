@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour{
 
     void UpdateRangedObjects(){
         foreach (var obj in objectsInRange) {
-            obj.SendMessage("ShipUpdate", SendMessageOptions.DontRequireReceiver);
+            // obj.SendMessage("ShipUpdate", SendMessageOptions.DontRequireReceiver);
         }
     }
 

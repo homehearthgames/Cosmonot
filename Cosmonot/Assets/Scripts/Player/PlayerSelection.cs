@@ -10,20 +10,30 @@ public class PlayerSelection : MonoBehaviour
     // reference to the selection text
     [SerializeField] TextMeshProUGUI selectionText;
 
+    private RaycastHit2D objectHit;
+    public RaycastHit2D ObjectHit { get { return objectHit; } }
+
+
+    public Health selectedTileHealth;
+
     void Update()
     {
         // check if the mouse is hovering over an object on the Resources, Enemies, or Buildings layers
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, selectableLayers);
-        if (hit.collider != null)
+        objectHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, selectableLayers);
+        if (objectHit.collider != null)
         {
             // if the mouse is hovering over an object, activate the Selection Tile
             selectionTile.SetActive(true);
             // if the mouse is hovering over an object, enable the selection text
             selectionText.enabled = true;
             // change the text for the currently selected object
-            selectionText.text = hit.collider.gameObject.name;
+            selectionText.text = objectHit.collider.gameObject.name;
+            // store the layer index of the selected object
+            selectionTile.layer = objectHit.collider.gameObject.layer;
             // move the Selection Tile to the center of the object
-            selectionTile.transform.position = hit.collider.bounds.center;
+            selectionTile.transform.position = objectHit.collider.bounds.center;
+            // get a reference to the health component on the hovered object
+            selectedTileHealth = objectHit.collider.gameObject.GetComponent<Health>();
         }
         else
         {
