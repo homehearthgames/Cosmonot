@@ -6,6 +6,13 @@ public class RenderInteractBeam : MonoBehaviour
     LineRenderer lineRenderer;
     // a reference to the PlayerSelection script
     PlayerSelection playerSelection;
+    // check if the beam is rendering
+    bool isRendering = false;    
+    public bool IsRendering {
+        get { return isRendering; }
+        set { isRendering = value; }
+    }
+
 
     void Start()
     {
@@ -17,6 +24,12 @@ public class RenderInteractBeam : MonoBehaviour
 
     void Update()
     {
+        RenderBeam();
+    }
+
+void RenderBeam()
+{
+    if(Input.GetMouseButton(0)){
         // check if the PlayerSelection script is present in the scene
         if (playerSelection != null)
         {
@@ -28,9 +41,9 @@ public class RenderInteractBeam : MonoBehaviour
                 lineRenderer.SetPosition(1, playerSelection.selectionTile.transform.position);
                 // enable the line renderer
                 lineRenderer.enabled = true;
-
-                // get the layer of the selected object
+                
                 int layer = playerSelection.selectionTile.layer;
+
                 // set the color of the line based on the layer
                 if (layer == LayerMask.NameToLayer("Resources"))
                 {
@@ -46,10 +59,16 @@ public class RenderInteractBeam : MonoBehaviour
                 }
             }
             else
-            {
+            { 
                 // disable the line renderer
                 lineRenderer.enabled = false;
             }
         }
+    }else{
+        lineRenderer.enabled = false;
     }
+}
+
+
+    
 }

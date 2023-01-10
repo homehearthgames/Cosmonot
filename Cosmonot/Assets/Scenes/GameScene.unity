@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.05
   weaponValue: 1
+  renderInteractBeam: {fileID: 1173940692}
 --- !u!4 &534286545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 463211040643046578, guid: 30c3b95f1b59ee74fbdc03238a676c92, type: 3}
@@ -684,6 +685,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1173940692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 123926778, guid: 30c3b95f1b59ee74fbdc03238a676c92, type: 3}
+  m_PrefabInstance: {fileID: 463211040434055493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7bf7caf4de3a3146beb0dc86f186174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1348381514
 GameObject:
   m_ObjectHideFlags: 0
