@@ -21,13 +21,13 @@ public class ShopItem : MonoBehaviour {
     // reference to collider
     new Collider2D collider;
     // reference to sprite renderer
-    SpriteRenderer graphics;
+    SpriteRenderer[] graphics;
     // the new point of origin for obstructions check
     Vector2 obstruction_check;
 
     void Start() {
         // grab the sprite renderer
-        graphics = GetComponentInChildren<SpriteRenderer>();
+        graphics = GetComponentsInChildren<SpriteRenderer>();
         // grab the collider
         collider = GetComponent<Collider2D>();
         // set collider as trigger so we don't push other objects around while in build mode
@@ -49,20 +49,37 @@ public class ShopItem : MonoBehaviour {
             // swap the color overlay based on if its placable
             var current_color = placeable ? placeableColor : blockedColor;
             // adjust the shaders _color to our current color
-            graphics.material.SetColor("_Color", current_color);
+            SetSpriteColor(current_color);
         }
     }
+
 
     // on placed 
     public void Place(){
         // adjust the shaders _color to transparent / remove the overlay color
-        graphics.material.SetColor("_Color", new Color(1,1,1,0));
+        SetSpriteColor (new Color(1,1,1,0));
         // set this collider back for proper collisions
         collider.isTrigger = false;
         placed = true;
         // disable this script after this item is placed
         enabled = false;
         FindObjectOfType<PathfindingUpdateObstacles>().RecalculatePathfinding(collider);
+    }
+
+    [ContextMenu("Place me!")]
+    void PlacedFromEditor(){
+        // grab the sprite renderer
+        graphics = GetComponentsInChildren<SpriteRenderer>();
+        // grab the collider
+        collider = GetComponent<Collider2D>();
+        transform.position = Helpers.RoundVector(transform.position);
+        Place();
+    }
+
+    void SetSpriteColor(Color color){
+        foreach (var sprite in graphics) {
+            sprite.material.SetColor("_Color", color);
+        }
     }
 
     // debug info for the obstructions point of origin + size

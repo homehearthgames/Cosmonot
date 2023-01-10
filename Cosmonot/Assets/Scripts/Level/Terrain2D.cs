@@ -7,6 +7,8 @@ using Pathfinding;
 
 public class Terrain2D : MonoBehaviour{
 
+    public bool randomSeed;
+
     // seed of the world
     public int seed;
     // size of the map squared
@@ -17,11 +19,10 @@ public class Terrain2D : MonoBehaviour{
     // grab the tilemap component from our child game object
     Tilemap terrain;
 
-    [SerializeField] Tilemap worldTilemap;
-
     void Start() {
         terrain = GetComponentInChildren<Tilemap>();
         if(size <= 0) size = 10;
+        seed = randomSeed ? Random.Range(-100000, 100000) : seed;
         GetComponent<Terrain2D>().Generate(seed, size);
     }
 

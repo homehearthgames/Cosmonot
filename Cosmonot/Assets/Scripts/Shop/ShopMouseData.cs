@@ -10,20 +10,12 @@ public class ShopMouseData : MonoBehaviour {
 
     void Update() {
         //coordinates of the mouse pointer
-        coordinates = RoundVector(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-    }
-
-    //round the vector 2 to the nearest int
-    Vector2 RoundVector(Vector2 value){
-        return new Vector2Int(
-            Mathf.RoundToInt(value.x),
-            Mathf.RoundToInt(value.y)
-        );
+        coordinates = Helpers.RoundVector(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
     }
 
     //draw a gizmos for the editor view
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.black;
-        Gizmos.DrawWireCube(RoundVector(coordinates), Vector2.one);
+        Gizmos.DrawWireCube(Helpers.RoundVector(coordinates), Vector2.one);
     }
 }
