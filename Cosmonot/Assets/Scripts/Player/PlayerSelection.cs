@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerSelection : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerSelection : MonoBehaviour
 
 
     public Health selectedTileHealth;
+    public GameObject healthBar;
+    Slider healthBarSlider;
+    public Image healthBarImage;
 
     void Update()
     {
@@ -34,6 +38,15 @@ public class PlayerSelection : MonoBehaviour
             selectionTile.transform.position = objectHit.collider.bounds.center;
             // get a reference to the health component on the hovered object
             selectedTileHealth = objectHit.collider.gameObject.GetComponent<Health>();
+            if (selectedTileHealth != null)
+            {
+                healthBar.SetActive(true);
+                // healthBarSlider.maxValue = selectedTileHealth.MaxHealth;
+                healthBarImage.fillAmount = ((float)selectedTileHealth.CurrentHealth / (float)selectedTileHealth.MaxHealth);
+                
+                // Debug.Log(healthBarSlider.maxValue);
+                // healthBarSlider.value = selectedTileHealth.CurrentHealth;
+            }
         }
         else
         {
@@ -41,6 +54,8 @@ public class PlayerSelection : MonoBehaviour
             selectionTile.SetActive(false);
             // disable the selection text
             selectionText.enabled = false;
+            // disable the healthbar slider
+            healthBar.SetActive(false);
         }
     }
 }

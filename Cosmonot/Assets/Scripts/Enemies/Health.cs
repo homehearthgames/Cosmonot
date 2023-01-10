@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -37,7 +38,6 @@ public class Health : MonoBehaviour
     {
         // Reduce the current health by the damage taken
         currentHealth -= weaponValue;
-
         // If the current health is less than or equal to 0, call the Die function
         if (currentHealth <= 0)
         {
