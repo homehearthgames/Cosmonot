@@ -16,9 +16,11 @@ public class PlayerSelection : MonoBehaviour
 
 
     public Health selectedTileHealth;
+    public GeneratorPowerHandler selectedTilePowerGeneratorHandler;
     public GameObject healthBar;
-    Slider healthBarSlider;
+    public GameObject powerBar;
     public Image healthBarImage;
+    public Image powerBarImage;
 
     void Update()
     {
@@ -43,9 +45,13 @@ public class PlayerSelection : MonoBehaviour
                 healthBar.SetActive(true);
                 // healthBarSlider.maxValue = selectedTileHealth.MaxHealth;
                 healthBarImage.fillAmount = ((float)selectedTileHealth.CurrentHealth / (float)selectedTileHealth.MaxHealth);
-                
-                // Debug.Log(healthBarSlider.maxValue);
-                // healthBarSlider.value = selectedTileHealth.CurrentHealth;
+            }
+            selectedTilePowerGeneratorHandler = objectHit.collider.gameObject.GetComponent<GeneratorPowerHandler>();
+            if (selectedTilePowerGeneratorHandler != null)
+            {
+                powerBar.SetActive(true);
+                // healthBarSlider.maxValue = selectedTileHealth.MaxHealth;
+                powerBarImage.fillAmount = ((float)selectedTilePowerGeneratorHandler.CurrentCarbon / (float)selectedTilePowerGeneratorHandler.MaxCarbon);
             }
         }
         else
@@ -54,8 +60,10 @@ public class PlayerSelection : MonoBehaviour
             selectionTile.SetActive(false);
             // disable the selection text
             selectionText.enabled = false;
-            // disable the healthbar slider
+            // disable the healthbar 
             healthBar.SetActive(false);
+            // disable the powerbar 
+            powerBar.SetActive(false);
         }
     }
 }

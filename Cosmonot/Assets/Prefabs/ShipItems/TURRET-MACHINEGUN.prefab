@@ -313,6 +313,9 @@ MonoBehaviour:
     m_Bits: 200
   placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
   blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
+  onPlaced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7174374877819156025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +348,19 @@ MonoBehaviour:
   powered: 0
   onPowered:
     m_PersistentCalls:
-      m_Calls: []
-  onDePowered:
+      m_Calls:
+      - m_Target: {fileID: 6761499137264829933}
+        m_TargetAssemblyTypeName: EnemyTracker, Assembly-CSharp
+        m_MethodName: FireWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLostPowered:
     m_PersistentCalls:
       m_Calls: []
