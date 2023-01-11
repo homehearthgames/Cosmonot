@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class FlipSprite : MonoBehaviour
 {
-    public Transform player; // drag the player object into this field in the Inspector
-
     AIPath a_star; 
     SpriteRenderer sprite_renderer;
 

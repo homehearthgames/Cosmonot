@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerResources : MonoBehaviour 
 {    
@@ -6,8 +7,19 @@ public class PlayerResources : MonoBehaviour
     public static PlayerResources instance;
 
 
-    [SerializeField] int carbon;
+    [SerializeField] int carbon;    
+    public int Carbon {
+        get { return carbon; }
+        set { carbon = value; }
+    }
     [SerializeField] int scrap;
+    public int Scrap {
+        get { return scrap; }
+        set { scrap = value; }
+    }
+
+    [SerializeField] TextMeshProUGUI carbonText;
+    [SerializeField] TextMeshProUGUI scrapText;
 
     void Awake()
     {
@@ -15,14 +27,9 @@ public class PlayerResources : MonoBehaviour
         instance = this;
     }
     
-    public int Carbon {
-        get { return carbon; }
-        set { carbon = value; }
-    }
-
-    public int Scrap {
-        get { return scrap; }
-        set { scrap = value; }
+    private void Update() {
+        carbonText.text = "Carbon: " + carbon.ToString();
+        scrapText.text = "Scrap: " + scrap.ToString();
     }
 
     public void AddCarbon(int amount) {
