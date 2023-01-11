@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e1a07343c145cdf49b1a418dbed5f9fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3143f84693477245b39255e718c8b32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,9 +96,11 @@ GameObject:
   - component: {fileID: 2795499742446597962}
   - component: {fileID: 1934467803115837451}
   - component: {fileID: 4681027027730839028}
-  - component: {fileID: -1064521709826763764}
+  - component: {fileID: -886677624799070432}
+  - component: {fileID: -6583289101501910310}
+  - component: {fileID: -1025363928810659231}
   m_Layer: 7
-  m_Name: POWERCELL
+  m_Name: GENERATOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -144,7 +146,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 1.9, y: 1.9}
   m_EdgeRadius: 0
 --- !u!50 &1934467803115837451
 Rigidbody2D:
@@ -154,7 +156,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8336126694245442962}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -166,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &4681027027730839028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7b142d8c513ec469d420accad3d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellSize: 1
+  cellSize: 2
   placed: 0
   placeable: 0
   layerObstructions:
@@ -187,7 +189,7 @@ MonoBehaviour:
     m_Bits: 200
   placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
   blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
---- !u!114 &-1064521709826763764
+--- !u!114 &-886677624799070432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,6 +202,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-6583289101501910310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280d4b9c8d5c0e048a3e5fdcff735724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullCarbonSprite: {fileID: 652398693, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  highCarbonSprite: {fileID: 338251822, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  midCarbonSprite: {fileID: 205838635, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  lowCarbonSprite: {fileID: -1974784169, guid: c8d32645a339bae49a750ccb586d6ba2, type: 3}
+  lowCarbonThreshold: 33
+  midCarbonThreshold: 66
+--- !u!114 &-1025363928810659231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2497b49b9b2723745aca692958493f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCarbon: 0
+  maxCarbon: 100
+  carbonSubtractAmount: 10
+  carbonSubtractInterval: 2

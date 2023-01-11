@@ -112,7 +112,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761499137264829842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 738b65fcca437e644a8294d6133d5bb5, type: 2}
   m_CullingMode: 0
@@ -218,10 +218,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6761499137625602717}
   - component: {fileID: 6761499137625602719}
-  - component: {fileID: 6761499137625602718}
   - component: {fileID: 2253585476537453275}
   - component: {fileID: 3791460321682436353}
   - component: {fileID: 7174374877819156025}
+  - component: {fileID: 5935204823806667076}
   m_Layer: 7
   m_Name: TURRET-RAILGUN
   m_TagString: Untagged
@@ -256,7 +256,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -272,22 +272,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!58 &6761499137625602718
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761499137625602716}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &2253585476537453275
 Rigidbody2D:
   serializedVersion: 4
@@ -296,7 +280,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761499137625602716}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -308,7 +292,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &3791460321682436353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +313,9 @@ MonoBehaviour:
     m_Bits: 200
   placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
   blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
+  onPlaced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7174374877819156025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,5 +331,24 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5935204823806667076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761499137625602716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae431c6a3d6fb946b243ff3f332cef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powered: 0
+  onPowered:
+    m_PersistentCalls:
+      m_Calls: []
+  onLostPowered:
     m_PersistentCalls:
       m_Calls: []

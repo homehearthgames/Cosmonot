@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShopItem : MonoBehaviour {
     // cell size squared of this item
@@ -18,12 +19,16 @@ public class ShopItem : MonoBehaviour {
     // blocked placement color
     public Color blockedColor;
 
+    public UnityEvent onPlaced;
+
     // reference to collider
     new Collider2D collider;
     // reference to sprite renderer
     SpriteRenderer[] graphics;
     // the new point of origin for obstructions check
     Vector2 obstruction_check;
+
+    bool ship_range;
 
     void Start() {
         // grab the sprite renderer
@@ -45,12 +50,24 @@ public class ShopItem : MonoBehaviour {
             var hits = Physics2D.OverlapBoxAll(obstruction_check, Vector2.one * (cellSize - 0.5f), layerObstructions);
 
             // are we hitting more obstructions than just ourself?
-            placeable = hits.Length > 1 ? false : true;
+            placeable = !ContainsObstruction(hits) && ship_range ? true : false;
             // swap the color overlay based on if its placable
             var current_color = placeable ? placeableColor : blockedColor;
             // adjust the shaders _color to our current color
             SetSpriteColor(current_color);
         }
+    }
+
+    bool ContainsObstruction(Collider2D[] hits){
+        foreach (var item in hits) {
+            if(item.gameObject == this.gameObject) continue;
+            // is the layer we're looking for the current layer? or bit shift till we find a match
+            if (layerObstructions == (layerObstructions | (1 << item.gameObject.layer))) {
+                //return true if so
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -61,9 +78,10 @@ public class ShopItem : MonoBehaviour {
         // set this collider back for proper collisions
         collider.isTrigger = false;
         placed = true;
+        FindObjectOfType<PathfindingUpdateObstacles>().RecalculatePathfinding(collider);
+        onPlaced.Invoke();
         // disable this script after this item is placed
         enabled = false;
-        FindObjectOfType<PathfindingUpdateObstacles>().RecalculatePathfinding(collider);
     }
 
     [ContextMenu("Place me!")]
@@ -80,6 +98,14 @@ public class ShopItem : MonoBehaviour {
         foreach (var sprite in graphics) {
             sprite.material.SetColor("_Color", color);
         }
+    }
+
+    public void OnShipUpdate(){
+        ship_range = true;
+    }
+
+    public void OnShipExit(){
+        ship_range = false;
     }
 
     // debug info for the obstructions point of origin + size

@@ -309,6 +309,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &451287876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7960815807584697235, guid: 1b5ada7b25f0f6f428409ef35170f133, type: 3}
+  m_PrefabInstance: {fileID: 7960815806530064278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &451287879 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7960815807584697246, guid: 1b5ada7b25f0f6f428409ef35170f133, type: 3}
+  m_PrefabInstance: {fileID: 7960815806530064278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &451287881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451287876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70f5fd7a889c8d4089858e5e85b3164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusCollider: {fileID: 451287879}
+  radius: 8
+  messageRate: 0.5
+  layersToCheck:
+    serializedVersion: 2
+    m_Bits: 200
+  repeatingMessageMethodName: OnShipUpdate
+  enterMessageMethodName: OnShipEnter
+  exitMessageMethodName: OnShipExit
 --- !u!1 &454993522
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +850,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bf7caf4de3a3146beb0dc86f186174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &1338535618
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteColorOverlay (Instance)
+  m_Shader: {fileID: -6465566751694194690, guid: 98c12084e2d22b04f807a73d9c8061ad, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _EnableExternalAlpha: 0
+    - _Fill: -0.14
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _Overlay: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1348381514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1130,10 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1268651693699409576, guid: 3166c5bde01c924488723380ab41d568, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1338535618}
     - target: {fileID: 2831775975968172542, guid: 3166c5bde01c924488723380ab41d568, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1083,6 +1176,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2831775975968172542, guid: 3166c5bde01c924488723380ab41d568, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681027027730839028, guid: 3166c5bde01c924488723380ab41d568, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681027027730839028, guid: 3166c5bde01c924488723380ab41d568, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8336126694245442962, guid: 3166c5bde01c924488723380ab41d568, type: 3}
@@ -1720,6 +1821,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SHOP
       objectReference: {fileID: 0}
+    - target: {fileID: 2249628790972928351, guid: 1cff3a765487b604b9cc4ba3634410be, type: 3}
+      propertyPath: items.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249628790972928351, guid: 1cff3a765487b604b9cc4ba3634410be, type: 3}
+      propertyPath: items.Array.data[3]
+      value: 
+      objectReference: {fileID: 6761499137625602716, guid: c54ec7669a3050941b5e9f27a4720228, type: 3}
+    - target: {fileID: 2249628790972928351, guid: 1cff3a765487b604b9cc4ba3634410be, type: 3}
+      propertyPath: items.Array.data[4]
+      value: 
+      objectReference: {fileID: 6761499137625602716, guid: bbd274ead8e16ed4abcc07a52547eb5e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cff3a765487b604b9cc4ba3634410be, type: 3}
 --- !u!1001 &2842804763312944433
@@ -1854,6 +1967,10 @@ PrefabInstance:
     - target: {fileID: 7960815807584697235, guid: 1b5ada7b25f0f6f428409ef35170f133, type: 3}
       propertyPath: m_Name
       value: SHIP
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960815807584697246, guid: 1b5ada7b25f0f6f428409ef35170f133, type: 3}
+      propertyPath: m_Radius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7960815807584697247, guid: 1b5ada7b25f0f6f428409ef35170f133, type: 3}
       propertyPath: m_RootOrder
