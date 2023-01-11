@@ -9,7 +9,6 @@ public class WanderingDestinationSetter : MonoBehaviour {
     }
     Vector3 PickRandomPoint () {
         var point = Random.insideUnitSphere * radius;
-        point.y = 0;
         point += ai.position;
         return point;
     }
