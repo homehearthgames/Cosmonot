@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6915548644778027733}
-  - component: {fileID: 1448347579965628161}
+  - component: {fileID: 2611746115037774818}
   - component: {fileID: 6879100883314008633}
   m_Layer: 0
-  m_Name: RadiusCollider
+  m_Name: Signal Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,8 +117,8 @@ Transform:
   m_Father: {fileID: 2831775975968172542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1448347579965628161
-CircleCollider2D:
+--- !u!61 &2611746115037774818
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,8 +131,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 4
+  m_Size: {x: 6, y: 6}
+  m_EdgeRadius: 0
 --- !u!114 &6879100883314008633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70f5fd7a889c8d4089858e5e85b3164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusCollider: {fileID: 1448347579965628161}
-  radius: 4
+  radiusCollider: {fileID: 2611746115037774818}
   messageRate: 1
   layersToCheck:
     serializedVersion: 2
@@ -165,8 +174,9 @@ GameObject:
   - component: {fileID: 2831775975968172542}
   - component: {fileID: 2795499742446597962}
   - component: {fileID: 1934467803115837451}
-  - component: {fileID: 4681027027730839028}
   - component: {fileID: -1064521709826763764}
+  - component: {fileID: 971908232217729466}
+  - component: {fileID: 7125099848177452475}
   m_Layer: 7
   m_Name: POWERCELL
   m_TagString: Untagged
@@ -238,41 +248,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &4681027027730839028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8336126694245442962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7b142d8c513ec469d420accad3d815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellSize: 1
-  placed: 0
-  placeable: 0
-  layerObstructions:
-    serializedVersion: 2
-    m_Bits: 200
-  placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
-  blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
-  onPlaced:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5763188558177341897}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &-1064521709826763764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +263,88 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5763188558177341897}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &971908232217729466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e58c261c6683b4b9354e81642a29d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSize: 1
+  placed: 0
+  placeable: 0
+  layerObstructions:
+    serializedVersion: 2
+    m_Bits: 200
+  placeableColor: {r: 0.101960786, g: 1, b: 0, a: 0.3137255}
+  blockedColor: {r: 1, g: 0, b: 0.047058824, a: 0.3137255}
+  onPlaced:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5763188558177341897}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  carbonCost: 5
+  scrapCost: 10
+  generatorRange: 0
+  powercellRange: 0
+--- !u!114 &7125099848177452475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336126694245442962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae431c6a3d6fb946b243ff3f332cef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powered: 0
+  onPowered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5763188558177341897}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onLostPower:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5763188558177341897}

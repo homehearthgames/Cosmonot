@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 public class ShopItem : MonoBehaviour {
     // cell size squared of this item
@@ -26,9 +27,10 @@ public class ShopItem : MonoBehaviour {
     // reference to sprite renderer
     SpriteRenderer[] graphics;
     // the new point of origin for obstructions check
-    Vector2 obstruction_check;
+    protected Vector2 obstruction_check;
+    Shop shop;
 
-    bool ship_range;
+    public int carbonCost, scrapCost;
 
     void Start() {
         // grab the sprite renderer
@@ -42,7 +44,7 @@ public class ShopItem : MonoBehaviour {
     }
 
     // this entire functions kinda sloppy will fix
-    void Update() {
+    public virtual void Update() {
         if(!placed ){
             // set the point of origin for obstructions check based on the cell size: true = center | false center + 0.5f
             obstruction_check = cellSize == 1? (Vector2)transform.position : (Vector2)transform.position + Vector2.one * 0.5f;
@@ -50,7 +52,7 @@ public class ShopItem : MonoBehaviour {
             var hits = Physics2D.OverlapBoxAll(obstruction_check, Vector2.one * (cellSize - 0.5f), layerObstructions);
 
             // are we hitting more obstructions than just ourself?
-            placeable = !ContainsObstruction(hits) && ship_range ? true : false;
+            placeable = !ContainsObstruction(hits) ? true : false;
             // swap the color overlay based on if its placable
             var current_color = placeable ? placeableColor : blockedColor;
             // adjust the shaders _color to our current color
@@ -58,7 +60,7 @@ public class ShopItem : MonoBehaviour {
         }
     }
 
-    bool ContainsObstruction(Collider2D[] hits){
+    protected bool ContainsObstruction(Collider2D[] hits){
         foreach (var item in hits) {
             if(item.gameObject == this.gameObject) continue;
             // is the layer we're looking for the current layer? or bit shift till we find a match
@@ -70,9 +72,9 @@ public class ShopItem : MonoBehaviour {
         return false;
     }
 
-
     // on placed 
-    public void Place(){
+    public virtual void Place(Shop shop){
+        this.shop = shop;
         // adjust the shaders _color to transparent / remove the overlay color
         SetSpriteColor (new Color(1,1,1,0));
         // set this collider back for proper collisions
@@ -91,21 +93,18 @@ public class ShopItem : MonoBehaviour {
         // grab the collider
         collider = GetComponent<Collider2D>();
         transform.position = Helpers.RoundVector(transform.position);
-        Place();
+        // set this collider back for proper collisions
+        collider.isTrigger = false;
+        placed = true;
+        // FindObjectOfType<PathfindingUpdateObstacles>().RecalculatePathfinding(collider);
+        // disable this script after this item is placed
+        enabled = false;
     }
 
-    void SetSpriteColor(Color color){
+    protected void SetSpriteColor(Color color){
         foreach (var sprite in graphics) {
             sprite.material.SetColor("_Color", color);
         }
-    }
-
-    public void OnShipUpdate(){
-        ship_range = true;
-    }
-
-    public void OnShipExit(){
-        ship_range = false;
     }
 
     // debug info for the obstructions point of origin + size

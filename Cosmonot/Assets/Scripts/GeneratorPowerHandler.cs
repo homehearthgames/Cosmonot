@@ -22,6 +22,8 @@ public class GeneratorPowerHandler : MonoBehaviour
 
     bool generatorRunning;
 
+    public SignalEmitter signalEmitter;
+
     void Start()
     {
         // Get a reference to the PlayerResources instance
@@ -41,10 +43,14 @@ public class GeneratorPowerHandler : MonoBehaviour
             yield return new WaitForSeconds(carbonSubtractInterval);
 
             // If currentCarbon is 0, stop the coroutine and return
-            if (currentCarbon == 0)
-            {
+            if (currentCarbon == 0) {
+                signalEmitter.gameObject.SetActive(false);
                 generatorRunning = false;
                 yield break;
+            }else{
+                if(!signalEmitter.gameObject.activeInHierarchy){
+                    signalEmitter.gameObject.SetActive(true);
+                }
             }
 
             // Subtract X carbon from currentCarbon of generator carbon pool

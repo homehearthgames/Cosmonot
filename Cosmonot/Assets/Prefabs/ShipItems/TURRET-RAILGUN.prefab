@@ -219,9 +219,9 @@ GameObject:
   - component: {fileID: 6761499137625602717}
   - component: {fileID: 6761499137625602719}
   - component: {fileID: 2253585476537453275}
-  - component: {fileID: 3791460321682436353}
   - component: {fileID: 7174374877819156025}
-  - component: {fileID: 5935204823806667076}
+  - component: {fileID: 6204074137339329632}
+  - component: {fileID: 1935488885133367252}
   m_Layer: 7
   m_Name: TURRET-RAILGUN
   m_TagString: Untagged
@@ -293,29 +293,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &3791460321682436353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761499137625602716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7b142d8c513ec469d420accad3d815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellSize: 1
-  placed: 0
-  placeable: 0
-  layerObstructions:
-    serializedVersion: 2
-    m_Bits: 200
-  placeableColor: {r: 0.101122975, g: 1, b: 0, a: 0.3137255}
-  blockedColor: {r: 1, g: 0, b: 0.04843235, a: 0.3137255}
-  onPlaced:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7174374877819156025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +310,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5935204823806667076
+--- !u!114 &6204074137339329632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,13 +319,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 6761499137625602716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae431c6a3d6fb946b243ff3f332cef6, type: 3}
+  m_Script: {fileID: 11500000, guid: e75171a873b6f1a438b75969058861ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSize: 1
+  placed: 0
+  placeable: 0
+  layerObstructions:
+    serializedVersion: 2
+    m_Bits: 200
+  placeableColor: {r: 0.101960786, g: 1, b: 0, a: 0.3137255}
+  blockedColor: {r: 1, g: 0, b: 0.047058824, a: 0.3137255}
+  onPlaced:
+    m_PersistentCalls:
+      m_Calls: []
+  carbonCost: 5
+  scrapCost: 15
+  powercellRange: 0
+--- !u!114 &1935488885133367252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761499137625602716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6dd290065ae164ea253a99fbf4ca8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
   onPowered:
     m_PersistentCalls:
       m_Calls: []
-  onLostPowered:
+  onLostPower:
     m_PersistentCalls:
       m_Calls: []

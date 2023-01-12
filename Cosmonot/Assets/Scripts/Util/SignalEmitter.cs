@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SignalEmitter : MonoBehaviour{
 
-    public CircleCollider2D radiusCollider;
-    public float radius = 4;
+    public BoxCollider2D radiusCollider;
     public float messageRate = 1;
     public LayerMask layersToCheck;
     public string repeatingMessageMethodName;
@@ -17,7 +16,6 @@ public class SignalEmitter : MonoBehaviour{
     void Start() {
         object_in_proximity = new();
         InvokeRepeating("Tick", 0, messageRate);
-        radiusCollider.radius = radius;
         radiusCollider.isTrigger = true;
     }
 
@@ -59,7 +57,7 @@ public class SignalEmitter : MonoBehaviour{
 
     void OnValidate() {
         if(radiusCollider == null) return;
-        radiusCollider.radius = radius;
+        // radiusCollider.radius = radius;
         radiusCollider.isTrigger = true;
     }
 }

@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Powerable : MonoBehaviour{
+public class Powered : MonoBehaviour{
     public bool powered;
-
     public UnityEvent onPowered;
-    public UnityEvent onLostPowered;
-
-    public void OnPowercellEnter(){
-        powered = true;
-        onPowered.Invoke();
-    }
+    public UnityEvent onLostPower;
     public void OnPowercellUpdate(){
-        powered = true;
+        if(!powered){
+            onPowered.Invoke();
+            powered = true;
+        }
     }
     public void OnPowercellExit(){
         powered = false;
-        onLostPowered.Invoke();
+        onLostPower.Invoke();
     }
 }
