@@ -17,6 +17,8 @@ namespace Pathfinding {
 		/// <summary>The object that the AI should move to</summary>
 		public Transform target;
 		IAstarAI ai;
+		public float followRange = 10;
+		bool startedFollowing = false;
 
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();
@@ -33,7 +35,28 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
+			if (ai != null) {
+				//list of tags in priority order
+				string[] priorityTags = new string[] {"Turret", "Player", "Beacon"};
+
+				//iterate through the tags in priority order
+				for (int i = 0; i < priorityTags.Length; i++) {
+					//get all objects with this tag in the scene
+					GameObject[] targets = GameObject.FindGameObjectsWithTag(priorityTags[i]);
+
+					//iterate through the targets
+					for (int j = 0; j < targets.Length; j++) {
+						float distance = Vector2.Distance(targets[j].transform.position, transform.position);
+						if (distance <= followRange) {
+							ai.destination = targets[j].transform.position;
+							return; //stop checking other targets once one is found
+						}
+					}
+				}
+			}
 		}
+
+
+
 	}
 }

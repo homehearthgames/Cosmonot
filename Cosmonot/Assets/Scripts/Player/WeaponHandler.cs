@@ -39,12 +39,10 @@ public class WeaponHandler : MonoBehaviour
                     if (layer == LayerMask.NameToLayer("Resources"))
                     {
                         playerSelection.selectedTileHealth.TakeDamage(weaponValue);
-                        Debug.Log("I clicked on a Resource! It's current health is " + playerSelection.selectedTileHealth.CurrentHealth);
                     }
                     else if (layer == LayerMask.NameToLayer("Enemies"))
                     {
                         playerSelection.selectedTileHealth.TakeDamage(weaponValue);
-                        Debug.Log("I clicked on an Enemy! It's current health is " + playerSelection.selectedTileHealth.CurrentHealth);
                     }
                     else if (layer == LayerMask.NameToLayer("Buildings"))
                     {
@@ -52,12 +50,10 @@ public class WeaponHandler : MonoBehaviour
                         if (playerSelection.selectedTileHealth != null && playerSelection.selectedTileHealth.CurrentHealth < playerSelection.selectedTileHealth.MaxHealth)
                         {
                             playerSelection.selectedTileHealth.Repair(weaponValue);
-                            Debug.Log("I clicked on a Building! It's current health is " + playerSelection.selectedTileHealth.CurrentHealth);
                         }
                         if (generatorPowerHandler != null && generatorPowerHandler.CurrentCarbon <= generatorPowerHandler.MaxCarbon)
                         {
                             generatorPowerHandler.AddCarbon(weaponValue);
-                            Debug.Log("I clicked on a Generator! It's current power is " + generatorPowerHandler.CurrentCarbon);
                         }
                     }
                     lastShotTime = Time.time;

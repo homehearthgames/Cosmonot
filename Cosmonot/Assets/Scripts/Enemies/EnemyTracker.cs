@@ -62,7 +62,7 @@ public class EnemyTracker : MonoBehaviour
         }
     }
 
-    GameObject FindNearestEnemy()
+    public GameObject FindNearestEnemy()
     {
         // Get a list of all the colliders in the scene within the maximum aim distance
         Collider2D[] colliders = Physics2D.OverlapCircleAll(weaponTransform.position, maxAimDistance, enemyLayer);

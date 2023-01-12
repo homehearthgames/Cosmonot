@@ -10,7 +10,7 @@ public class EnemyObjectPooler : MonoBehaviour
     public List<int> enemyCounts;
 
     // Declare a dictionary to store the object pools for each enemy prefab
-    private Dictionary<GameObject, Queue<GameObject>> enemyPoolDictionary;
+    public Dictionary<GameObject, Queue<GameObject>> enemyPoolDictionary;
 
     void Start()
     {
