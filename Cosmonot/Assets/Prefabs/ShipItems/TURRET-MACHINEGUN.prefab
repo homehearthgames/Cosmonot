@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6761499137264829843}
   - component: {fileID: 6761499137264829932}
-  - component: {fileID: 6761499137264829933}
   - component: {fileID: 6761499137264829934}
+  - component: {fileID: 6761499137264829933}
   - component: {fileID: 817549482140887563}
   - component: {fileID: 2750929774669882970}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TurretTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,24 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6761499137264829933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761499137264829842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a11d9d05c81f1459fa382087fdc5cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  maxAimDistance: 4
-  scanningAngle: 60
-  scanningSpeed: 10
 --- !u!95 &6761499137264829934
 Animator:
   serializedVersion: 5
@@ -126,6 +108,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6761499137264829933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761499137264829842}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a11d9d05c81f1459fa382087fdc5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  maxAimDistance: 4
+  scanningAngle: 60
+  scanningSpeed: 10
 --- !u!114 &817549482140887563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,12 +133,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761499137264829842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c87a97990367f6248b9c9730295caaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   interval: 0.25
 --- !u!114 &2750929774669882970
 MonoBehaviour:
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6761499137605509758}
   - component: {fileID: 6761499137605509759}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TurretBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,19 @@ MonoBehaviour:
   blockedColor: {r: 1, g: 0, b: 0.047058824, a: 0.3137255}
   onPlaced:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5195909877553395525}
+        m_TargetAssemblyTypeName: Powered, Assembly-CSharp
+        m_MethodName: Placed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   carbonCost: 0
   scrapCost: 15
   powercellRange: 0
@@ -377,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  placed: 0
   onPowered:
     m_PersistentCalls:
       m_Calls:

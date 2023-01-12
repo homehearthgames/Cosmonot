@@ -47,10 +47,6 @@ public class GeneratorPowerHandler : MonoBehaviour
                 signalEmitter.gameObject.SetActive(false);
                 generatorRunning = false;
                 yield break;
-            }else{
-                if(!signalEmitter.gameObject.activeInHierarchy){
-                    signalEmitter.gameObject.SetActive(true);
-                }
             }
 
             // Subtract X carbon from currentCarbon of generator carbon pool
@@ -72,6 +68,7 @@ public class GeneratorPowerHandler : MonoBehaviour
             if (!generatorRunning && currentCarbon > 0)
             {
                 carbonSubtractCoroutine = StartCoroutine(SubtractCarbon());
+                signalEmitter.gameObject.SetActive(true);
             }
         }
 

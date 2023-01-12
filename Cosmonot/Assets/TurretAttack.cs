@@ -14,24 +14,21 @@ public class TurretAttack : MonoBehaviour
 
     // The interval in seconds at which the turret will deal damage
     public float interval = 1.0f;
+    float timer;
 
-    private void Start()
+    private void Start() 
     {
         // Get the EnemyTracker component on the same game object
         enemyTracker = GetComponent<EnemyTracker>();
-
-        // Start the attack coroutine
-        StartCoroutine(Attack());
     }
 
-    IEnumerator Attack()
+    private void Update()
     {
-        while (true)
-        {
-            // Wait for the interval
-            yield return new WaitForSeconds(interval);
+        timer += Time.deltaTime;
 
-            // Get the nearest enemy
+        if(timer >= interval)
+        {
+
             GameObject nearestEnemy = enemyTracker.FindNearestEnemy();
 
             // If there is a nearest enemy
@@ -43,6 +40,7 @@ public class TurretAttack : MonoBehaviour
                 // Deal damage to the nearest enemy
                 health.TakeDamage(damage);
             }
+            timer = 0;
         }
     }
 }
