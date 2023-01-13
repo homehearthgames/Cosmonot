@@ -2160,6 +2160,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce765f6e27104034387fb389fd947dbe, type: 3}
+--- !u!1 &965300651648555876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 965300652330716140, guid: ce765f6e27104034387fb389fd947dbe, type: 3}
+  m_PrefabInstance: {fileID: 965300651648555875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &965300651648555877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965300651648555876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31009dd50f4ec9345a69c449ceff3274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beaconBase: {fileID: 1630209629568031826, guid: 0a93c45719d41dd4b9218d4ad7ad6593, type: 3}
+  beaconTransponder: {fileID: 2308210255851719196, guid: 1498b0e864208294ea9930066dd68153, type: 3}
+  beaconReceiver: {fileID: 8238378452248657822, guid: b2df87ad7c051b9448c65f55f6840472, type: 3}
+  tilemap: {fileID: 965300651648555880}
+--- !u!1839735485 &965300651648555880 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 965300652330716145, guid: ce765f6e27104034387fb389fd947dbe, type: 3}
+  m_PrefabInstance: {fileID: 965300651648555875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1836769392368155792
 PrefabInstance:
   m_ObjectHideFlags: 0
