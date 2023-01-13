@@ -22,6 +22,29 @@ public class PlayerSelection : MonoBehaviour
     public Image healthBarImage;
     public Image powerBarImage;
 
+    
+    // cursor sprites for each selectable layer
+    [SerializeField] Sprite resourcesCursorSprite;
+    [SerializeField] Sprite enemiesCursorSprite;
+    [SerializeField] Sprite buildingsCursorSprite;
+    [SerializeField] Sprite defaultCursorSprite;
+    // cursor textures
+    Texture2D resourcesCursor;
+    Texture2D enemiesCursor;
+    Texture2D buildingsCursor;
+    Texture2D defaultCursor;
+
+void Start()
+    {
+        // convert the sprites to textures
+        resourcesCursor = resourcesCursorSprite.texture;
+        enemiesCursor = enemiesCursorSprite.texture;
+        buildingsCursor = buildingsCursorSprite.texture;
+        defaultCursor = defaultCursorSprite.texture;
+        // set the default cursor
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+    }
+
     void Update()
     {
         // check if the mouse is hovering over an object on the Resources, Enemies, or Buildings layers
@@ -53,6 +76,20 @@ public class PlayerSelection : MonoBehaviour
                 // healthBarSlider.maxValue = selectedTileHealth.MaxHealth;
                 powerBarImage.fillAmount = ((float)selectedTilePowerGeneratorHandler.CurrentCarbon / (float)selectedTilePowerGeneratorHandler.MaxCarbon);
             }
+            // check the layer of the object hit and set the cursor accordingly
+            if (objectHit.collider.gameObject.layer == LayerMask.NameToLayer("Resources"))
+            {
+                Cursor.SetCursor(resourcesCursor, Vector2.zero, CursorMode.Auto);
+            }
+            else if (objectHit.collider.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+            {
+                Cursor.SetCursor(enemiesCursor, Vector2.zero, CursorMode.Auto);
+            }
+            else if (objectHit.collider.gameObject.layer == LayerMask.NameToLayer("Buildings"))
+            {
+                Cursor.SetCursor(buildingsCursor, Vector2.zero, CursorMode.Auto);
+            }
+
         }
         else
         {
@@ -64,6 +101,9 @@ public class PlayerSelection : MonoBehaviour
             healthBar.SetActive(false);
             // disable the powerbar 
             powerBar.SetActive(false);
+            // set cursor to default
+            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
         }
+
     }
 }

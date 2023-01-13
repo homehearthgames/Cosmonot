@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6761499137264829933}
   - component: {fileID: 6761499137264829934}
   - component: {fileID: 5424950591706320687}
+  - component: {fileID: 2426908607548966091}
   m_Layer: 7
   m_Name: TurretTop
   m_TagString: Untagged
@@ -31,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4915862146887866252}
   m_Father: {fileID: 6761499137625602717}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,7 +96,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761499137264829842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43a11d9d05c81f1459fa382087fdc5cd, type: 3}
   m_Name: 
@@ -132,13 +134,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761499137264829842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c87a97990367f6248b9c9730295caaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleSystem1: {fileID: 8699033169077723348, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+  particleSystem2: {fileID: 500382724240081964}
   damage: 1
   interval: 0.1
+--- !u!114 &2426908607548966091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761499137264829842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ca0186368e6be4e975e6ba746714fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6761499137605509757
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +363,19 @@ MonoBehaviour:
   blockedColor: {r: 1, g: 0, b: 0.047058824, a: 0.3137255}
   onPlaced:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1935488885133367252}
+        m_TargetAssemblyTypeName: Powered, Assembly-CSharp
+        m_MethodName: Placed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   carbonCost: 5
   scrapCost: 15
   powercellRange: 0
@@ -364,9 +392,109 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  placed: 0
   onPowered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2426908607548966091}
+        m_TargetAssemblyTypeName: TurretController, Assembly-CSharp
+        m_MethodName: EnableTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLostPower:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2426908607548966091}
+        m_TargetAssemblyTypeName: TurretController, Assembly-CSharp
+        m_MethodName: DisableTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &9099694554510353656
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6761499137264829843}
+    m_Modifications:
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.405
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.26452914
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406126162788647193, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_Name
+      value: Laser-Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275523607392292477, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699033169077723348, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+--- !u!198 &500382724240081964 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8699033169077723348, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+  m_PrefabInstance: {fileID: 9099694554510353656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4915862146887866252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4210933202437485428, guid: f86ce9ffb6808b347b4162d34e153bd9, type: 3}
+  m_PrefabInstance: {fileID: 9099694554510353656}
+  m_PrefabAsset: {fileID: 0}

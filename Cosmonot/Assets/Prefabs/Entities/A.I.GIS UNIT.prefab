@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 5191564057666145510}
   - component: {fileID: -6377667478621101352}
   - component: {fileID: 1554551934157336589}
-  - component: {fileID: 1903769327961397952}
+  - component: {fileID: -2330889982203536352}
+  - component: {fileID: 2435325899773056212}
   m_Layer: 6
-  m_Name: TRIPLICATOR
+  m_Name: A.I.GIS UNIT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1444730046, guid: 5ae29ba8625dfa645aa5bc4dd44515a2, type: 3}
+  m_Sprite: {fileID: 1618062435, guid: e4a08468de72d52478a1383e7d8cf76f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5191564057666145515
@@ -152,7 +153,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 0.75
+  maxSpeed: 0.3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -188,7 +189,7 @@ Animator:
   m_GameObject: {fileID: 5191564057666145489}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cbd8afb8d6c869242a553459aeb0baba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4a07e4b5f28e6014497aa4068246cd56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -210,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b906673e98269543a1ac6eb8f0b2614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   currentHealth: 0
   OnDeath:
     m_PersistentCalls:
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carbon: 0
-  scrap: 5
+  scrap: 25
 --- !u!114 &1554551934157336589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +266,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3ab65f88c06fa45a48d7cf575faa4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1903769327961397952
+--- !u!114 &-2330889982203536352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191564057666145489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8268e864f50634e448bfada957a46350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2435325899773056212
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

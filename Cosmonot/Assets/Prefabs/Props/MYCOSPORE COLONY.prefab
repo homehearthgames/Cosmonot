@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7487063492157850387}
   - component: {fileID: 9012152792785538156}
   m_Layer: 3
-  m_Name: SHROOM
+  m_Name: MYCOSPORE COLONY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

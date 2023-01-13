@@ -7,6 +7,7 @@ public class TurretController : MonoBehaviour
     TurretAttack turretAttack;
     EnemyTracker enemyTracker;
     Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,6 @@ public class TurretController : MonoBehaviour
         turretAttack = GetComponent<TurretAttack>();
         enemyTracker = GetComponent<EnemyTracker>();
         animator = GetComponent<Animator>();
-
     }
 
     public void DisableTurret()

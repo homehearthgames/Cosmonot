@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TurretAttack : MonoBehaviour
 {
+    
+    [SerializeField] ParticleSystem particleSystem1, particleSystem2;
     // Reference to the EnemyTracker script
     private EnemyTracker enemyTracker;
 
@@ -30,15 +32,33 @@ public class TurretAttack : MonoBehaviour
         {
 
             GameObject nearestEnemy = enemyTracker.FindNearestEnemy();
-
+                
             // If there is a nearest enemy
             if (nearestEnemy != null)
             {
+                if (particleSystem1 != null)
+                {
+                    particleSystem1.Play();
+                }
+                if (particleSystem2 != null)
+                {
+                    particleSystem2.Play();
+                }
                 // Get the Health component on the nearest enemy
                 health = nearestEnemy.GetComponent<Health>();
 
                 // Deal damage to the nearest enemy
                 health.TakeDamage(damage);
+            } else
+            {
+                if (particleSystem1 != null)
+                {
+                    particleSystem1.Stop();
+                }
+                if (particleSystem2 != null)
+                {
+                    particleSystem2.Stop();
+                }
             }
             timer = 0;
         }

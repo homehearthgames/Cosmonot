@@ -15,7 +15,13 @@ public class WaveSpawn : MonoBehaviour{
                 lowLim = Lim;
                 Lim += enemies[i].percentage;
                 if (random >= lowLim && random < Lim) {
-                    Instantiate(enemies[i].prefab, Random.insideUnitCircle * playerRadiusCollider.radius, Quaternion.identity);
+                    float angle = Random.Range(0f, 2f * Mathf.PI);
+                    Vector2 spawnPosition = new Vector2(
+                    playerRadiusCollider.radius * Mathf.Cos(angle),
+                    playerRadiusCollider.radius * Mathf.Sin(angle)
+                    );
+                    Instantiate(enemies[i].prefab, playerRadiusCollider.transform.position + new Vector3(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+
                 }
             }
         }

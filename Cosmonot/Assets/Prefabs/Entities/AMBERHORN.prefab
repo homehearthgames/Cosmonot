@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 648018641237613342}
   - component: {fileID: 648018641237613343}
   - component: {fileID: 648018641237613336}
-  - component: {fileID: 648018641237613341}
   - component: {fileID: 648018641237613330}
   - component: {fileID: 648018641237613331}
   - component: {fileID: 648018641237613340}
@@ -20,6 +19,7 @@ GameObject:
   - component: {fileID: 648018641237613329}
   - component: {fileID: 648018641237613334}
   - component: {fileID: 648018641237613333}
+  - component: {fileID: 5523945225738093185}
   m_Layer: 6
   m_Name: AMBERHORN
   m_TagString: Untagged
@@ -114,32 +114,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!61 &648018641237613341
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648018641237613337}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &648018641237613330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +182,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  wanderInterval: 10
+  minWanderInterval: 5
+  maxWanderInterval: 10
+  canWander: 0
 --- !u!114 &648018641237613328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,3 +279,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8268e864f50634e448bfada957a46350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &5523945225738093185
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648018641237613337}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
